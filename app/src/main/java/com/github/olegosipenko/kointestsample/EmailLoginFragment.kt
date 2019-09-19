@@ -27,6 +27,16 @@ class EmailLoginFragment: Fragment() {
     }
   }
 
+  fun render(viewState: EmailLoginViewState) {
+    when(viewState) {
+      EmailLoginViewState.INITIAL -> renderInitial()
+    }
+  }
+
+  private fun renderInitial() {
+    // No op
+  }
+
   companion object {
     val module = module {
       single {

@@ -1,0 +1,19 @@
+apply plugin: 'kotlin'
+
+dependencies {
+  compileOnly Libs.detektApi
+
+  testImplementation Libs.detektApi
+  testImplementation Libs.detektTest
+  implementation Libs.kotlin
+  testImplementation Libs.junitApi
+  testImplementation Libs.junitParams
+  testImplementation Libs.assertJ
+  testRuntimeOnly Libs.junitEngine
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+}
