@@ -81,6 +81,17 @@ detekt {
   }
 }
 
+detekt {
+  reports {
+    xml {
+      enabled = false
+    }
+    txt {
+      enabled = false
+    }
+  }
+}
+
 dependencies {
   implementation Libs.kotlin
   implementation Libs.appCompat
