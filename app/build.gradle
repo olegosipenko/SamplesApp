@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
 android {
   compileSdkVersion 28
   defaultConfig {
@@ -25,17 +27,31 @@ android {
   }
 }
 
+detekt {
+  reports {
+    xml {
+      enabled = false
+    }
+    txt {
+      enabled = false
+    }
+  }
+}
+
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation 'androidx.appcompat:appcompat:1.1.0'
-  implementation 'androidx.core:core-ktx:1.1.0'
-  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-  implementation 'com.google.android.material:material:1.0.0'
-  implementation 'org.koin:koin-android-viewmodel:2.0.1'
-  androidTestImplementation 'androidx.test:runner:1.2.0'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-  androidTestImplementation 'androidx.test:rules:1.2.0'
-  androidTestImplementation 'io.mockk:mockk-android:1.9.3'
-  androidTestImplementation 'com.agoda.kakao:kakao:2.1.0'
+  implementation Libs.kotlin
+  implementation Libs.appCompat
+  implementation Libs.coreKtx
+  implementation Libs.constraintLayout
+  implementation Libs.material
+  implementation Libs.viewModel
+
+  detekt project(":detekt-rules")
+  detekt "io.gitlab.arturbosch.detekt:detekt-cli:1.0.1"
+
+  androidTestImplementation Libs.testRunner
+  androidTestImplementation Libs.espressoCore
+  androidTestImplementation Libs.testRules
+  androidTestImplementation Libs.mockkAndroid
+  androidTestImplementation Libs.kakao
 }
