@@ -7,7 +7,9 @@ import io.gitlab.arturbosch.detekt.api.Entity
 import io.gitlab.arturbosch.detekt.api.Issue
 import io.gitlab.arturbosch.detekt.api.Rule
 import io.gitlab.arturbosch.detekt.api.Severity
+import org.jetbrains.kotlin.com.intellij.psi.PsiElement
 import org.jetbrains.kotlin.psi.KtBlockExpression
+import org.jetbrains.kotlin.psi.KtLambdaExpression
 import org.jetbrains.kotlin.psi.KtNamedFunction
 import org.jetbrains.kotlin.psi.KtWhenExpression
 
@@ -26,10 +28,26 @@ class NonExhaustiveWhen(config: Config = Config.empty): Rule(config) {
       function.children.filterIsInstance<KtBlockExpression>()
         .flatMap { blockExpression -> blockExpression.children.asIterable() }
         .filterIsInstance<KtWhenExpression>()
-    if (whenExpressions.isNotEmpty()) {
+
+    checkIfPresent(whenExpressions, function)
+  }
+
+  override fun visitLambdaExpression(lambdaExpression: KtLambdaExpression) {
+    super.visitLambdaExpression(lambdaExpression)
+
+    val whenExpressions = lambdaExpression.bodyExpression?.statements
+      ?.filterIsInstance<KtWhenExpression>()
+
+    checkIfPresent(whenExpressions, lambdaExpression)
+  }
+
+  private fun checkIfPresent(
+    whenExpressions: List<KtWhenExpression>?, psiElement: PsiElement
+  ) {
+    if (whenExpressions?.isNotEmpty() == true) {
       report(
         CodeSmell(
-          issue, Entity.from(function), MESSAGE
+          issue, Entity.from(psiElement), MESSAGE
         )
       )
     }
