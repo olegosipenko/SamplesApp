@@ -47,7 +47,7 @@ dependencies {
   implementation Libs.viewModel
 
   detekt project(":detekt-rules")
-  detekt "io.gitlab.arturbosch.detekt:detekt-cli:1.0.1"
+  detekt Libs.detektCli
 
   androidTestImplementation Libs.testRunner
   androidTestImplementation Libs.espressoCore
