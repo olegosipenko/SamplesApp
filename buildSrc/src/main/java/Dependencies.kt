@@ -24,6 +24,7 @@ object Versions {
   const val composeViewModel = "2.6.1"
   const val composeThemeAdapter = "1.0.4"
   const val composeConstraint = "1.0.0-rc01"
+  const val detektCli = "1.3.1"
 }
 
 object GradlePlugins {
