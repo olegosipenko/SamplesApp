@@ -14,6 +14,7 @@ object Versions {
   const val detekt = "1.0.1"
   const val junit = "5.5.2"
   const val assertJ = "3.13.2"
+  const val detektCli = "1.3.1"
 }
 
 object GradlePlugins {
@@ -40,4 +41,5 @@ object Libs {
   const val junitParams = "org.junit.jupiter:junit-jupiter-params:${Versions.junit}"
   const val assertJ = "org.assertj:assertj-core:${Versions.assertJ}"
   const val junitEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit}"
+  const val detektCli = "io.gitlab.arturbosch.detekt:detekt-cli:${Versions.detektCli}"
 }
