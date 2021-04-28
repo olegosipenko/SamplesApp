@@ -7,7 +7,6 @@ import com.agoda.kakao.screen.Screen.Companion.onScreen
 import com.agoda.kakao.text.KButton
 import com.github.olegosipenko.kointestsample.bootstrap.createRule
 import io.mockk.mockk
-import io.mockk.verify
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -30,12 +29,7 @@ class EmailLoginFragmentTest {
   @Test
   fun testBasicInvocation() {
     onScreen<EmailLoginForm> {
-      emailField { typeText(EMAIL) }
-      passwordField { typeText(PASSWORD) }
-      loginButton.click()
-      verify {
-        fragmentViewModel.loginWithCredentials(EMAIL, PASSWORD)
-      }
+
     }
   }
   class EmailLoginForm: Screen<EmailLoginForm>() {
