@@ -1,5 +1,5 @@
 object Versions {
-  const val androidGradlePlugin = "4.1.0"
+  const val androidGradlePlugin = "4.1.3"
   const val kotlin = "1.4.10"
   const val appcompat = "1.2.0"
   const val coreKtx = "1.3.2"
