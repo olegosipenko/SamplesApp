@@ -1,6 +1,6 @@
 object Versions {
   const val androidGradlePlugin = "7.3.1"
-  const val depUpdate = "0.46.0"
+  const val depUpdate = "0.46.3"
   const val kotlin = "1.8.21"
   const val appcompat = "1.6.1"
   const val coreKtx = "1.9.0"
