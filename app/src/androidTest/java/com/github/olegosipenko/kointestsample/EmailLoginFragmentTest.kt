@@ -22,41 +22,41 @@ import org.junit.runner.RunWith
 @HiltAndroidTest
 @RunWith(AndroidJUnit4ClassRunner::class)
 class EmailLoginFragmentTest {
-    @get:Rule(order = 0)
-    var hiltRule = HiltAndroidRule(this)
+  @get:Rule(order = 0)
+  var hiltRule = HiltAndroidRule(this)
 
-    @get:Rule(order = 1)
-    val composeTestRule = createAndroidComposeRule<MainActivity>()
+  @get:Rule(order = 1)
+  val composeTestRule = createAndroidComposeRule<MainActivity>()
 
-    @BindValue
-    @JvmField
-    val fragmentViewModel: EmailLoginFragmentViewModel = mockk(relaxed = true)
+  @BindValue
+  @JvmField
+  val fragmentViewModel: EmailLoginFragmentViewModel = mockk(relaxed = true)
 
-    @Before
-    fun init() {
-        hiltRule.inject()
+  @Before
+  fun init() {
+    hiltRule.inject()
+  }
+
+  @Test
+  fun testBasicInvocation() {
+    onComposeScreen<EmailLoginForm>(composeTestRule) {
+      emailField { performTextInput(EMAIL) }
+      passwordField { performTextInput(PASSWORD) }
+      loginButton { performClick() }
+
+      verify {
+        fragmentViewModel.loginWithCredentials(EMAIL, PASSWORD)
+      }
     }
+  }
 
-    @Test
-    fun testBasicInvocation() {
-        onComposeScreen<EmailLoginForm>(composeTestRule) {
-            emailField { performTextInput(EMAIL) }
-            passwordField { performTextInput(PASSWORD) }
-            loginButton { performClick() }
-
-            verify {
-                fragmentViewModel.loginWithCredentials(EMAIL, PASSWORD)
-            }
-        }
-    }
-
-    class EmailLoginForm(
-        semanticsProvider: SemanticsNodeInteractionsProvider
-    ) : ComposeScreen<EmailLoginForm>(semanticsProvider) {
-        val emailField: KNode = child { hasTestTag("email-field") }
-        val passwordField: KNode = child { hasTestTag("password-field") }
-        val loginButton: KNode = child { hasTestTag("button") }
-    }
+  class EmailLoginForm(
+    semanticsProvider: SemanticsNodeInteractionsProvider
+  ) : ComposeScreen<EmailLoginForm>(semanticsProvider) {
+    val emailField: KNode = child { hasTestTag("email-field") }
+    val passwordField: KNode = child { hasTestTag("password-field") }
+    val loginButton: KNode = child { hasTestTag("button") }
+  }
 }
 
 private const val EMAIL = "some@email.com"
