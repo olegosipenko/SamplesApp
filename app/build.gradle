@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion 31
   defaultConfig {
     applicationId "com.github.olegosipenko.kointestsample"
     minSdkVersion 21
-    targetSdkVersion 28
+    targetSdkVersion 31
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "com.github.olegosipenko.kointestsample.bootstrap.KoinTestRunner"
