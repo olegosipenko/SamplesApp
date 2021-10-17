@@ -1,19 +1,20 @@
 object Versions {
-  const val androidGradlePlugin = "4.1.0"
-  const val kotlin = "1.4.10"
-  const val appcompat = "1.2.0"
-  const val coreKtx = "1.3.2"
-  const val constraintLayout = "2.0.3"
+  const val androidGradlePlugin = "7.0.0"
+  const val depUpdate = "0.36.0"
+  const val kotlin = "1.5.31"
+  const val appcompat = "1.4.0-beta01"
+  const val coreKtx = "1.7.0-beta02"
+  const val constraintLayout = "2.1.1"
   const val material = "1.2.1"
-  const val viewModel = "2.1.5"
-  const val testRunner = "1.3.0"
-  const val espressoCore = "3.3.0"
-  const val testRules = "1.3.0"
-  const val mockk = "1.10.0"
-  const val kakao = "2.3.4"
-  const val detekt = "1.14.2"
-  const val junit = "5.7.0"
-  const val assertJ = "3.18.0"
+  const val viewModel = "2.2.2"
+  const val testRunner = "1.4.0"
+  const val espressoCore = "3.4.0"
+  const val testRules = "1.4.0"
+  const val mockk = "1.12.0"
+  const val kakao = "2.4.0"
+  const val detekt = "1.18.1"
+  const val junit = "5.8.1"
+  const val assertJ = "3.21.0"
   const val detektCli = "1.9.0"
 }
 
@@ -21,6 +22,7 @@ object GradlePlugins {
   const val androidGradle = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
   const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
   const val detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}"
+  const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
 }
 
 object Libs {
