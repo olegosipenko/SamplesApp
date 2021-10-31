@@ -6,7 +6,6 @@ object Versions {
   const val coreKtx = "1.7.0-beta02"
   const val constraintLayout = "2.1.1"
   const val material = "1.4.0"
-  const val viewModel = "2.2.2"
   const val testRunner = "1.4.0"
   const val espressoCore = "3.4.0"
   const val testRules = "1.4.0"
@@ -16,6 +15,7 @@ object Versions {
   const val junit = "5.8.1"
   const val assertJ = "3.21.0"
   const val detektCli = "1.9.0"
+  const val hiltAndroid = "2.40"
 }
 
 object GradlePlugins {
@@ -23,6 +23,7 @@ object GradlePlugins {
   const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
   const val detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}"
   const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
+  const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
 }
 
 object Libs {
@@ -31,7 +32,9 @@ object Libs {
   const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
   const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
   const val material = "com.google.android.material:material:${Versions.material}"
-  const val viewModel = "org.koin:koin-android-viewmodel:${Versions.viewModel}"
+  const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
+  const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hiltAndroid}"
+  const val hiltInstrumentation = "com.google.dagger:hilt-android-testing:${Versions.hiltAndroid}"
   const val testRunner = "androidx.test:runner:${Versions.testRunner}"
   const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
   const val testRules = "androidx.test:rules:${Versions.testRules}"

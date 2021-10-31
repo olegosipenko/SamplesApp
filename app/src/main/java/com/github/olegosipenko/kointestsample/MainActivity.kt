@@ -8,7 +8,9 @@ import android.view.Window
 import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
