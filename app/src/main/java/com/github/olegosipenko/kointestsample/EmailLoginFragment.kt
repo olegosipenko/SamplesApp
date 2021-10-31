@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_email_login.*
-import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.dsl.module
 
+@AndroidEntryPoint
 class EmailLoginFragment: Fragment() {
 
-  private val fragmentViewModel: EmailLoginFragmentViewModel by viewModel()
+  private val fragmentViewModel: EmailLoginFragmentViewModel by viewModels()
 
   override fun onCreateView(inflater: LayoutInflater,
     container: ViewGroup?,
@@ -35,13 +36,5 @@ class EmailLoginFragment: Fragment() {
 
   private fun renderInitial() {
     // No op
-  }
-
-  companion object {
-    val module = module {
-      single {
-        EmailLoginFragmentViewModel()
-      }
-    }
   }
 }
