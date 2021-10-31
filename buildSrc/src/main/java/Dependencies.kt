@@ -5,7 +5,7 @@ object Versions {
   const val appcompat = "1.4.0-beta01"
   const val coreKtx = "1.7.0-beta02"
   const val constraintLayout = "2.1.1"
-  const val material = "1.2.1"
+  const val material = "1.4.0"
   const val viewModel = "2.2.2"
   const val testRunner = "1.4.0"
   const val espressoCore = "3.4.0"
