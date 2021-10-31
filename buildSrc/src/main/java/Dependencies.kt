@@ -16,6 +16,14 @@ object Versions {
   const val assertJ = "3.21.0"
   const val detektCli = "1.9.0"
   const val hiltAndroid = "2.40"
+  const val viewModelKtx = "1.3.6"
+  const val activityCompose = "1.4.0"
+  const val composeMaterial = "1.0.4"
+  const val composeAnimation = "1.0.4"
+  const val composeTooling = "1.0.4"
+  const val composeViewModel = "2.4.0"
+  const val composeThemeAdapter = "1.0.4"
+  const val composeConstraint = "1.0.0-rc01"
 }
 
 object GradlePlugins {
@@ -47,4 +55,12 @@ object Libs {
   const val assertJ = "org.assertj:assertj-core:${Versions.assertJ}"
   const val junitEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junit}"
   const val detektCli = "io.gitlab.arturbosch.detekt:detekt-cli:${Versions.detektCli}"
+  const val viewModelKtx = "androidx.fragment:fragment-ktx:${Versions.viewModelKtx}"
+  const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+  const val composeMaterial = "androidx.compose.material:material:${Versions.composeMaterial}"
+  const val composeAnimation = "androidx.compose.animation:animation:${Versions.composeAnimation}"
+  const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeTooling}"
+  const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
+  const val composeThemeAdapter = "com.google.android.material:compose-theme-adapter:${Versions.composeThemeAdapter}"
+  const val composeConstraint = "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraint}"
 }

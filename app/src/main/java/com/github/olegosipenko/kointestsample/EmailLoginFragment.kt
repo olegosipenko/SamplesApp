@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.MaterialTheme
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_email_login.*
+import kotlinx.android.synthetic.main.fragment_email_login.composeView
 
 @AndroidEntryPoint
 class EmailLoginFragment: Fragment() {
@@ -21,11 +23,20 @@ class EmailLoginFragment: Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    buttonLogin.setOnClickListener {
-      val email = textFieldEmail.text.trim().toString()
-      val password = textFieldPassword.text.trim().toString()
-      fragmentViewModel.loginWithCredentials(email, password)
+    composeView.apply {
+      setViewCompositionStrategy(
+        ViewCompositionStrategy.DisposeOnLifecycleDestroyed(viewLifecycleOwner)
+      )
+      setContent {
+        MaterialTheme {
+          EmailLoginFragmentView(::onLoginClick)
+        }
+      }
     }
+  }
+
+  fun onLoginClick(email: String, password: String) {
+    fragmentViewModel.loginWithCredentials(email, password)
   }
 
   fun render(viewState: EmailLoginViewState) {
