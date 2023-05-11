@@ -1,33 +1,28 @@
 package com.github.olegosipenko.kointestsample
 
-import com.agoda.kakao.screen.Screen.Companion.onScreen
-import com.github.olegosipenko.kointestsample.bootstrap.createRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.karumi.shot.ScreenshotTest
-import io.mockk.mockk
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import io.github.kakaocup.compose.node.element.ComposeScreen
 import org.junit.Rule
 import org.junit.Test
-import org.koin.dsl.module
+import org.junit.runner.RunWith
 
-class ScreenshotTest: ScreenshotTest {
-  private val fragmentViewModel: EmailLoginFragmentViewModel =
-    mockk(relaxed = true)
-  private val fragment = EmailLoginFragment()
+@HiltAndroidTest
+@RunWith(AndroidJUnit4ClassRunner::class)
+class ScreenshotTest : ScreenshotTest {
+    @get:Rule(order = 0)
+    var hiltRule = HiltAndroidRule(this)
 
-  @get:Rule
-  val fragmentRule = createRule(fragment, module {
-    single(override = true) {
-      fragmentViewModel
+    @get:Rule(order = 1)
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
+
+    @Test
+    fun testScreenshot() {
+        ComposeScreen.onComposeScreen<EmailLoginFragmentTest.EmailLoginForm>(composeTestRule) {
+            compareScreenshot(composeTestRule.activity)
+        }
     }
-  })
-
-  @Test
-  fun testScreenshot() {
-//    fragmentRule.launch()
-
-//    Thread.sleep(1000L)
-
-    onScreen<EmailLoginFragmentTest.EmailLoginForm> {
-      compareScreenshot(fragmentRule.activity)
-    }
-  }
 }

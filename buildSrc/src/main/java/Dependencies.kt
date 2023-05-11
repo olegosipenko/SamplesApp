@@ -1,6 +1,6 @@
 object Versions {
   const val androidGradlePlugin = "7.3.1"
-  const val depUpdate = "0.46.3"
+  const val depUpdate = "0.46.0"
   const val kotlin = "1.8.21"
   const val appcompat = "1.6.1"
   const val coreKtx = "1.9.0"
@@ -24,7 +24,7 @@ object Versions {
   const val composeViewModel = "2.6.1"
   const val composeThemeAdapter = "1.0.4"
   const val composeConstraint = "1.0.0-rc01"
-  const val detektCli = "1.3.1"
+  const val shot = "5.14.1"
 }
 
 object GradlePlugins {
@@ -33,6 +33,7 @@ object GradlePlugins {
   const val detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}"
   const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
   const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
+  const val shot = "com.karumi:shot:${Versions.shot}"
 }
 
 object Libs {
@@ -67,4 +68,5 @@ object Libs {
   const val composeTest = "androidx.compose.ui:ui-test:1.1.1"
   const val composeJUnit = "androidx.compose.ui:ui-test-junit4:1.1.1"
   const val fragmentTesting = "androidx.fragment:fragment-testing:1.5.7"
+  const val facebookScreenshot = "com.facebook.testing.screenshot:core:0.14.0"
 }

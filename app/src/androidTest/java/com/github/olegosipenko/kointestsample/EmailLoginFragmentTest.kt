@@ -32,10 +32,10 @@ class EmailLoginFragmentTest {
   @JvmField
   val fragmentViewModel: EmailLoginFragmentViewModel = mockk(relaxed = true)
 
-  @Before
-  fun init() {
-    hiltRule.inject()
-  }
+    @Before
+    fun init() {
+        hiltRule.inject()
+    }
 
   @Test
   fun testBasicInvocation() {
