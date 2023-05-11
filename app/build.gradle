@@ -4,12 +4,18 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+apply plugin: 'dagger.hilt.android.plugin'
+
+apply plugin: 'kotlin-kapt'
+
 android {
-  compileSdkVersion 28
+  compileSdkVersion 31
   defaultConfig {
     applicationId "com.github.olegosipenko.kointestsample"
     minSdkVersion 21
-    targetSdkVersion 28
+    targetSdkVersion 31
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "com.github.olegosipenko.kointestsample.bootstrap.KoinTestRunner"
@@ -20,22 +26,75 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
+
   testOptions {
     animationsDisabled = true
+  }
+
+  kapt {
+    correctErrorTypes true
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+
+  buildFeatures {
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion '1.0.4'
+  }
+
+}
+
+detekt {
+  reports {
+    xml {
+      enabled = false
+    }
+    txt {
+      enabled = false
+    }
   }
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation 'androidx.appcompat:appcompat:1.2.0'
-  implementation 'androidx.core:core-ktx:1.3.2'
-  implementation 'androidx.constraintlayout:constraintlayout:2.0.3'
-  implementation 'com.google.android.material:material:1.2.1'
-  implementation 'org.koin:koin-android-viewmodel:2.1.5'
-  androidTestImplementation 'androidx.test:runner:1.3.0'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-  androidTestImplementation 'androidx.test:rules:1.3.0'
-  androidTestImplementation 'io.mockk:mockk-android:1.10.0'
-  androidTestImplementation 'com.agoda.kakao:kakao:2.3.4'
+  implementation Libs.kotlin
+  implementation Libs.appCompat
+  implementation Libs.coreKtx
+  implementation Libs.constraintLayout
+  implementation Libs.material
+  implementation Libs.viewModelKtx
+
+  implementation Libs.activityCompose
+  // Compose Material Design
+  implementation Libs.composeMaterial
+  // Animations
+  implementation Libs.composeAnimation
+  // Tooling support (Previews, etc.)
+  implementation Libs.composeTooling
+  // Integration with ViewModels
+  implementation Libs.composeViewModel
+  implementation Libs.composeConstraint
+
+  implementation Libs.hiltAndroid
+  kapt Libs.hiltCompiler
+
+  detekt project(":detekt-rules")
+  detekt Libs.detektCli
+
+  androidTestImplementation Libs.testRunner
+  androidTestImplementation Libs.espressoCore
+  androidTestImplementation Libs.testRules
+  androidTestImplementation Libs.mockkAndroid
+  androidTestImplementation Libs.kakao
+  androidTestImplementation Libs.hiltInstrumentation
+  kaptAndroidTest Libs.hiltCompiler
 }

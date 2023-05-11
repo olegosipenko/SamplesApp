@@ -1,15 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: "com.github.ben-manes.versions"
 
 buildscript {
-  ext.kotlin_version = '1.4.10'
   repositories {
     google()
     jcenter()
-
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:4.1.0'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath GradlePlugins.androidGradle
+    classpath GradlePlugins.kotlin
+    classpath GradlePlugins.detekt
+    classpath GradlePlugins.depUpdate
+    classpath GradlePlugins.hilt
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files
   }
@@ -29,4 +31,19 @@ allprojects {
 
 task clean(type: Delete) {
   delete rootProject.buildDir
+}
+
+dependencyUpdates {
+  gradleReleaseChannel = "current"
+
+  def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA', 'BETA']
+      .any { qualifier -> version.toUpperCase().contains(qualifier) }
+    def regex = /^[0-9,.v-]+$/
+    return !stableKeyword && !(version ==~ regex)
+  }
+
+  rejectVersionIf {
+    isNonStable(it.candidate.version)
+  }
 }
