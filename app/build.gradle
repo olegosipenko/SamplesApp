@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
 apply plugin: 'dagger.hilt.android.plugin'
@@ -11,11 +9,11 @@ apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 31
+  compileSdkVersion 33
   defaultConfig {
     applicationId "com.github.olegosipenko.kointestsample"
     minSdkVersion 21
-    targetSdkVersion 31
+    targetSdkVersion 33
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "com.github.olegosipenko.kointestsample.bootstrap.KoinTestRunner"
@@ -49,9 +47,27 @@ android {
   }
 
   composeOptions {
-    kotlinCompilerExtensionVersion '1.0.4'
+    kotlinCompilerExtensionVersion '1.4.7'
   }
 
+  packagingOptions {
+    exclude 'META-INF/DEPENDENCIES'
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/license.txt'
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/NOTICE.txt'
+    exclude 'META-INF/notice.txt'
+    exclude 'META-INF/ASL2.0'
+    exclude 'META-INF/AL2.0'
+    exclude 'META-INF/LGPL2.1'
+    exclude 'META-INF/LICENSE.md'
+    exclude 'META-INF/LICENSE-notice.md'
+  }
+
+  buildFeatures {
+    viewBinding = true
+  }
 }
 
 detekt {
@@ -97,4 +113,8 @@ dependencies {
   androidTestImplementation Libs.kakao
   androidTestImplementation Libs.hiltInstrumentation
   kaptAndroidTest Libs.hiltCompiler
+  androidTestAnnotationProcessor Libs.hiltCompiler
+  androidTestImplementation Libs.composeTest
+  androidTestImplementation Libs.composeJUnit
+  androidTestImplementation Libs.fragmentTesting
 }
