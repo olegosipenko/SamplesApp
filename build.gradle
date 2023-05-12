@@ -4,7 +4,9 @@ apply plugin: "com.github.ben-manes.versions"
 buildscript {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    gradlePluginPortal()
   }
   dependencies {
     classpath GradlePlugins.androidGradle
@@ -20,7 +22,7 @@ buildscript {
 allprojects {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
   }
   configurations.all { // https://github.com/mockk/mockk/issues/281
     resolutionStrategy {

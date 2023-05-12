@@ -8,22 +8,27 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.github.olegosipenko.kointestsample.databinding.FragmentEmailLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_email_login.composeView
 
 @AndroidEntryPoint
 class EmailLoginFragment: Fragment() {
 
   private val fragmentViewModel: EmailLoginFragmentViewModel by viewModels()
+  private var _viewBinding: FragmentEmailLoginBinding? = null
+  private val viewBinding get() = requireNotNull(_viewBinding)
 
   override fun onCreateView(inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? = inflater.inflate(R.layout.fragment_email_login, container, false)
+  ): View {
+    _viewBinding = FragmentEmailLoginBinding.inflate(inflater, container, false)
+    return viewBinding.root
+  }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    composeView.apply {
+    viewBinding.composeView.apply {
       setViewCompositionStrategy(
         ViewCompositionStrategy.DisposeOnLifecycleDestroyed(viewLifecycleOwner)
       )
@@ -35,17 +40,12 @@ class EmailLoginFragment: Fragment() {
     }
   }
 
-  fun onLoginClick(email: String, password: String) {
+  private fun onLoginClick(email: String, password: String) {
     fragmentViewModel.loginWithCredentials(email, password)
   }
 
-  fun render(viewState: EmailLoginViewState) {
-    when(viewState) {
-      EmailLoginViewState.INITIAL -> renderInitial()
-    }
-  }
-
-  private fun renderInitial() {
-    // No op
+  override fun onDestroyView() {
+    super.onDestroyView()
+    _viewBinding = null
   }
 }

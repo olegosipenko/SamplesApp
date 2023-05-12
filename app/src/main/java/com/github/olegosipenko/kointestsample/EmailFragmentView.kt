@@ -17,6 +17,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ChainStyle
@@ -53,12 +55,14 @@ fun EmailLoginFragmentView(clickListener: (String, String) -> Unit) {
                 )
         )
         TextField(
-            modifier = Modifier.constrainAs(email) {
-                top.linkTo(parent.top)
-                bottom.linkTo(password.top)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            },
+            modifier = Modifier
+                .constrainAs(email) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(password.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+                .semantics { testTag = "email-field" },
             label = {
                 Text(text = "E-mail")
             },
@@ -68,12 +72,14 @@ fun EmailLoginFragmentView(clickListener: (String, String) -> Unit) {
             }
         )
         TextField(
-            modifier = Modifier.constrainAs(password) {
-                top.linkTo(email.bottom)
-                bottom.linkTo(button.top)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            },
+            modifier = Modifier
+                .constrainAs(password) {
+                    top.linkTo(email.bottom)
+                    bottom.linkTo(button.top)
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+                .semantics { testTag = "password-field" },
             label = {
                 Text(text = "password")
             },
@@ -83,13 +89,15 @@ fun EmailLoginFragmentView(clickListener: (String, String) -> Unit) {
             }
         )
         Button(
-            modifier = Modifier.constrainAs(button) {
-                width = Dimension.fillToConstraints
-                start.linkTo(email.start)
-                end.linkTo(email.end)
-                top.linkTo(password.bottom)
-                bottom.linkTo(parent.bottom)
-            },
+            modifier = Modifier
+                .constrainAs(button) {
+                    width = Dimension.fillToConstraints
+                    start.linkTo(email.start)
+                    end.linkTo(email.end)
+                    top.linkTo(password.bottom)
+                    bottom.linkTo(parent.bottom)
+                }
+                .semantics { testTag = "button" },
             onClick = {
                 clickListener.invoke(
                     emailState.text, passwordState.text
@@ -104,11 +112,5 @@ fun EmailLoginFragmentView(clickListener: (String, String) -> Unit) {
 @Preview
 @Composable
 fun PreviewFragment() {
-    EmailLoginFragmentView(
-        object : (String, String) -> Unit {
-            override fun invoke(p1: String, p2: String) {
-
-            }
-        }
-    )
+    EmailLoginFragmentView { _, _ -> }
 }
