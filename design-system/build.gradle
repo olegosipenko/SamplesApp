@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'app.cash.paparazzi'
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 33
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.7'
+    }
+
+    namespace "com.github.olegosipenko.kointestsample.design_system"
+}
+
+dependencies {
+    implementation Libs.constraintLayout
+    implementation Libs.kotlin
+    implementation Libs.composeMaterial
+    implementation Libs.composeAnimation
+    implementation Libs.composeTooling
+    implementation Libs.composeViewModel
+    implementation Libs.composeConstraint
+}

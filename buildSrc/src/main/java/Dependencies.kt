@@ -32,6 +32,7 @@ object GradlePlugins {
   const val detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}"
   const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
   const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
+  const val paparazzi = "app.cash.paparazzi:paparazzi-gradle-plugin:1.2.0"
 }
 
 object Libs {
