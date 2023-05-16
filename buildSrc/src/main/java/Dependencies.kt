@@ -39,7 +39,9 @@ object Libs {
   const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
   const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
   const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
-  const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+  const val constraintLayout =
+    "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+  const val recyclerView = "androidx.recyclerview:recyclerview:1.3.0"
   const val material = "com.google.android.material:material:${Versions.material}"
   const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
   const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hiltAndroid}"

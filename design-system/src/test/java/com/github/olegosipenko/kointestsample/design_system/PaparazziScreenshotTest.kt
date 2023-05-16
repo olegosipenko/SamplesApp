@@ -1,5 +1,6 @@
 package com.github.olegosipenko.kointestsample.design_system
 
+import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
@@ -24,6 +25,12 @@ class PaparazziScreenshotTest {
     fun testXml() {
         val view = paparazzi.inflate<ConstraintLayout>(R.layout.xml_layout_sample)
         paparazzi.snapshot(view)
+    }
+
+    @Test
+    fun testRecyclerView() {
+        val recyclerScreen = paparazzi.inflate<FrameLayout>(R.layout.xml_recycler)
+        paparazzi.snapshot(recyclerScreen)
     }
 
     @Test

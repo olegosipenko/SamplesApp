@@ -40,4 +40,5 @@ dependencies {
     implementation Libs.composeTooling
     implementation Libs.composeViewModel
     implementation Libs.composeConstraint
+    implementation Libs.recyclerView
 }
