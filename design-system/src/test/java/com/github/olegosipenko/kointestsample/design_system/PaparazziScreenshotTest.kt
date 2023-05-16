@@ -39,4 +39,10 @@ class PaparazziScreenshotTest {
             SampleComposeContent()
         }
     }
+
+    @Test
+    fun testGif() {
+        val view = paparazzi.inflate<ConstraintLayout>(R.layout.xml_layout_sample)
+        paparazzi.gif(view, fps = 2)
+    }
 }
