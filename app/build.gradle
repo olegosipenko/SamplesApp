@@ -8,6 +8,8 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "com.dropbox.dropshots"
+
 android {
   compileSdkVersion 33
   defaultConfig {

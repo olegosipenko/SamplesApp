@@ -24,6 +24,7 @@ object Versions {
   const val composeViewModel = "2.6.1"
   const val composeThemeAdapter = "1.0.4"
   const val composeConstraint = "1.0.0-rc01"
+  const val dropshots = "0.4.0"
 }
 
 object GradlePlugins {
@@ -32,6 +33,7 @@ object GradlePlugins {
   const val detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}"
   const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
   const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
+  const val dropshots = "com.dropbox.dropshots:dropshots-gradle-plugin:${Versions.dropshots}"
 }
 
 object Libs {
