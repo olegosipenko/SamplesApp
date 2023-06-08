@@ -1,9 +1,7 @@
 package com.github.olegosipenko.kointestsample
 
-import android.util.Log
 import androidx.compose.ui.test.SemanticsNodeInteractionsProvider
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -11,7 +9,6 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import io.github.kakaocup.compose.node.element.ComposeScreen
 import io.github.kakaocup.compose.node.element.ComposeScreen.Companion.onComposeScreen
 import io.github.kakaocup.compose.node.element.KNode
-import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before

@@ -8,6 +8,8 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'io.github.takahirom.roborazzi'
+
 android {
   compileSdkVersion 33
   defaultConfig {
@@ -27,6 +29,10 @@ android {
 
   testOptions {
     animationsDisabled = true
+
+    unitTests {
+      includeAndroidResources = true
+    }
   }
 
   kapt {
@@ -117,4 +123,10 @@ dependencies {
   androidTestImplementation Libs.composeTest
   androidTestImplementation Libs.composeJUnit
   androidTestImplementation Libs.fragmentTesting
+
+  testImplementation Libs.robolectric
+  testImplementation Libs.roborazzi
+  testImplementation Libs.roborazziCompose
+  testImplementation Libs.roborazziJunit
+  testImplementation Libs.composeJUnit
 }

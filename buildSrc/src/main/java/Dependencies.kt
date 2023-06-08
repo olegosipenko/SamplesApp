@@ -24,6 +24,7 @@ object Versions {
   const val composeViewModel = "2.6.1"
   const val composeThemeAdapter = "1.0.4"
   const val composeConstraint = "1.0.0-rc01"
+  const val roborazzi = "1.3.0-alpha-4"
 }
 
 object GradlePlugins {
@@ -33,6 +34,8 @@ object GradlePlugins {
   const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
   const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
   const val paparazzi = "app.cash.paparazzi:paparazzi-gradle-plugin:1.2.0"
+  const val roborazzi =
+    "io.github.takahirom.roborazzi:roborazzi-gradle-plugin:${Versions.roborazzi}"
 }
 
 object Libs {
@@ -63,10 +66,20 @@ object Libs {
   const val composeMaterial = "androidx.compose.material:material:${Versions.composeMaterial}"
   const val composeAnimation = "androidx.compose.animation:animation:${Versions.composeAnimation}"
   const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeTooling}"
-  const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
-  const val composeThemeAdapter = "com.google.android.material:compose-theme-adapter:${Versions.composeThemeAdapter}"
-  const val composeConstraint = "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraint}"
+  const val composeViewModel =
+    "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
+  const val composeThemeAdapter =
+    "com.google.android.material:compose-theme-adapter:${Versions.composeThemeAdapter}"
+  const val composeConstraint =
+    "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraint}"
   const val composeTest = "androidx.compose.ui:ui-test:1.1.1"
   const val composeJUnit = "androidx.compose.ui:ui-test-junit4:1.1.1"
   const val fragmentTesting = "androidx.fragment:fragment-testing:1.5.7"
+  const val robolectric = "org.robolectric:robolectric:4.10.3"
+  const val roborazzi = "io.github.takahirom.roborazzi:roborazzi:${Versions.roborazzi}"
+  const val roborazziCompose =
+    "io.github.takahirom.roborazzi:roborazzi-compose:${Versions.roborazzi}"
+  const val roborazziJunit =
+    "io.github.takahirom.roborazzi:roborazzi-junit-rule:${Versions.roborazzi}"
+  const val composeManifest = "androidx.compose.ui:ui-test-manifest"
 }

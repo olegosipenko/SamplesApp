@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'app.cash.paparazzi'
+apply plugin: 'io.github.takahirom.roborazzi'
 
 android {
     compileSdkVersion 33
@@ -10,6 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -30,6 +32,12 @@ android {
     }
 
     namespace "com.github.olegosipenko.kointestsample.design_system"
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -41,4 +49,10 @@ dependencies {
     implementation Libs.composeViewModel
     implementation Libs.composeConstraint
     implementation Libs.recyclerView
+    testImplementation Libs.robolectric
+    testImplementation Libs.roborazzi
+    testImplementation Libs.roborazziCompose
+    testImplementation Libs.roborazziJunit
+    testImplementation Libs.composeJUnit
+    debugImplementation Libs.composeManifest
 }

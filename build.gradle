@@ -14,7 +14,7 @@ buildscript {
     classpath GradlePlugins.detekt
     classpath GradlePlugins.depUpdate
     classpath GradlePlugins.hilt
-    classpath GradlePlugins.paparazzi
+    classpath GradlePlugins.roborazzi
     // NOTE: Do not place your application dependencies here; they belong
     // in the individual module build.gradle files
   }
