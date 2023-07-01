@@ -8,6 +8,8 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "com.google.gms.google-services"
+
 android {
   compileSdkVersion 33
   defaultConfig {
@@ -105,6 +107,8 @@ dependencies {
 
   detekt project(":detekt-rules")
   detekt Libs.detektCli
+
+  implementation(platform(Libs.firebaseBom))
 
   androidTestImplementation Libs.testRunner
   androidTestImplementation Libs.espressoCore
