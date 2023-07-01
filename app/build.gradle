@@ -10,6 +10,8 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: "com.google.gms.google-services"
 
+apply plugin: "dev.testify"
+
 android {
   compileSdkVersion 33
   defaultConfig {
@@ -121,4 +123,5 @@ dependencies {
   androidTestImplementation Libs.composeTest
   androidTestImplementation Libs.composeJUnit
   androidTestImplementation Libs.fragmentTesting
+  androidTestImplementation Libs.testifyCompose
 }

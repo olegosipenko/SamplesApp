@@ -34,6 +34,7 @@ object GradlePlugins {
   const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
   const val firebase =
     "com.google.gms.google-services:com.google.gms.google-services.gradle.plugin:4.3.15"
+  const val testify = "dev.testify:plugin:2.0.0-beta01"
 }
 
 object Libs {
@@ -69,4 +70,5 @@ object Libs {
   const val composeJUnit = "androidx.compose.ui:ui-test-junit4:1.1.1"
   const val fragmentTesting = "androidx.fragment:fragment-testing:1.5.7"
   const val firebaseBom = "com.google.firebase:firebase-bom:32.1.1"
+  const val testifyCompose = "dev.testify:testify-compose:2.0.0-beta01"
 }
