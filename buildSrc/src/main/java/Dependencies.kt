@@ -32,6 +32,8 @@ object GradlePlugins {
   const val detekt = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${Versions.detekt}"
   const val depUpdate = "com.github.ben-manes:gradle-versions-plugin:${Versions.depUpdate}"
   const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
+  const val firebase =
+    "com.google.gms.google-services:com.google.gms.google-services.gradle.plugin:4.3.15"
 }
 
 object Libs {
@@ -66,4 +68,5 @@ object Libs {
   const val composeTest = "androidx.compose.ui:ui-test:1.1.1"
   const val composeJUnit = "androidx.compose.ui:ui-test-junit4:1.1.1"
   const val fragmentTesting = "androidx.fragment:fragment-testing:1.5.7"
+  const val firebaseBom = "com.google.firebase:firebase-bom:32.1.1"
 }
