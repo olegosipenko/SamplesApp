@@ -62,11 +62,16 @@ object Libs {
   const val composeMaterial = "androidx.compose.material:material:${Versions.composeMaterial}"
   const val composeAnimation = "androidx.compose.animation:animation:${Versions.composeAnimation}"
   const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeTooling}"
-  const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
-  const val composeThemeAdapter = "com.google.android.material:compose-theme-adapter:${Versions.composeThemeAdapter}"
-  const val composeConstraint = "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraint}"
+  const val composeViewModel =
+    "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModel}"
+  const val composeThemeAdapter =
+    "com.google.android.material:compose-theme-adapter:${Versions.composeThemeAdapter}"
+  const val composeConstraint =
+    "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraint}"
   const val composeTest = "androidx.compose.ui:ui-test:1.1.1"
   const val composeJUnit = "androidx.compose.ui:ui-test-junit4:1.1.1"
   const val fragmentTesting = "androidx.fragment:fragment-testing:1.5.7"
   const val firebaseBom = "com.google.firebase:firebase-bom:32.1.1"
+  const val snappyAndroid = "com.github.QuickBirdEng.kotlin-snapshot-testing:snapshot-android:1.0.4"
+  const val snappy = "com.github.QuickBirdEng.kotlin-snapshot-testing:snapshot:1.0.4"
 }

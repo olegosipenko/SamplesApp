@@ -24,6 +24,7 @@ allprojects {
   repositories {
     google()
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
   }
   configurations.all { // https://github.com/mockk/mockk/issues/281
     resolutionStrategy {

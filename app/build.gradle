@@ -121,4 +121,6 @@ dependencies {
   androidTestImplementation Libs.composeTest
   androidTestImplementation Libs.composeJUnit
   androidTestImplementation Libs.fragmentTesting
+  androidTestImplementation Libs.snappyAndroid
+  androidTestImplementation Libs.snappy
 }
